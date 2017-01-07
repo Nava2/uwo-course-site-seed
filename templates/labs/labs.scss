@@ -1,0 +1,30 @@
+
+@import "../index";
+
+@mixin question-counter($counter) {
+  content: "Q" counter($counter) ": ";
+  counter-increment: $counter;
+}
+
+.nav ol.questions {
+
+  counter-reset: nav-question-counter;
+  list-style: none;
+
+  li::before {
+    @include question-counter(nav-question-counter);
+  }
+
+  .question {
+  //  margin-left: 12px;
+    font-size: $font-size-small;
+  }
+}
+
+section.exercise {
+  counter-reset: section-question-counter;
+
+  section.question h4::before {
+    @include question-counter(section-question-counter);
+  }
+}

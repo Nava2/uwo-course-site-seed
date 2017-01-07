@@ -1,0 +1,42 @@
+
+nav.navbar.navbar-default.navbar-fixed-top
+  .container-fluid
+    .navbar-header
+      a.navbar-brand(href="/#home")
+        span: img(src=assets.img('western-crest-only.png') alt="SE2205")
+        | SE2205
+      button.navbar-toggle.collapsed(
+        type="button"
+        data-toggle="collapse"
+        data-target="#menu-navbar-collapse"
+        aria-expanded="false"
+      )
+        span.sr-only Toggle navigation
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+    .navbar-collapse.collapse#menu-navbar-collapse
+      ul.nav.navbar-nav
+        li.dropdown
+          a.nav-link.dropdown-toggle(
+            href="#"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          ) Lectures
+          ul.dropdown-menu
+            each lecture, idx in data.lecture.items
+              li.date-enabled(data-available-date=lecture.date)
+                a.presentation(href=lecture.href) !{padLeft(idx, 2, '0')} - !{lecture.title}
+
+        li.dropdown
+          a.nav-link.dropdown-toggle(
+              href="#"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            ) Labs
+          ul.dropdown-menu
+            each lab, idx in data.lab.items
+              li.date-enabled(data-available-date=lab.date)
+                a(href=lab.href) !{padLeft(idx, 2, '0')} - !{lab.title}

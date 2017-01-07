@@ -1,0 +1,26 @@
+mixin icn(name, hidden)
+  i.fa(class="fa-" + name aria-hidden=!!hidden)&attributes(attributes)
+
+mixin owlLink(href)
+  a(href=join(data.owlHref, 'page', href))
+    +icn('graduation-cap', true)
+    = ' '
+    block
+
+mixin ghLink(href)
+  a(href=href)
+    +icn('github', true)
+    = ' '
+    block
+
+mixin javaLink(url)
+  //- Shows a link with a "coffee cup" implying Java -- hehe.
+  a(href=url)
+    +icn("coffee", true)
+    | &nbsp;
+    block
+
+mixin video(name)
+  video&attributes(attributes)
+    source(src=assets.video(name + '.ogg') type="video/ogg")
+    source(src=assets.video(name + '.mp4') type="video/mp4")

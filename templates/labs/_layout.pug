@@ -1,0 +1,71 @@
+extends ../_main.layout.pug
+
+mixin labSection(title)
+  section(data-title=title)&attributes(attributes)
+    h3
+      a(href="#" + attributes.id)
+      =title
+
+    block
+
+mixin question(title)
+  section.question(data-title=title)&attributes(attributes)
+    h4
+      a(title=title)
+      =title
+    block
+
+
+block styles
+  link(rel="stylesheet" href=assets.css('labs/labs.css'))
+
+block title
+  title Lab !{padLeft(lab.index, 2, '0')}: !{lab.title} - SE2205 Winter 2017
+
+block content
+  .row
+    .col-sm-9.lab-content(data-spy="scroll" data-target="#toc-spy" data-offset="15")
+
+      h2.lab-title Lab !{padLeft(lab.index, 2, '0')}: !{lab.title}
+
+      .lab-date Runs: Week of !{lab.date.format("MMM DD, YYYY")}
+      .lab-date Due: Week of !{lab.date.clone().add(1, 'weeks').format("MMM DD, YYYY")}
+
+      +labSection("Rationale and Background")#rationale
+        block rationale
+
+      +labSection("Provided Code")#provided
+        block provided
+          :md
+            Code is provided in a Github repository. The link is provided in the
+            +owlLink(href='a64921e3-f0ee-434f-af72-7dbc6ec426ef', text='Assignments') page.
+
+      +labSection("Evaluation")#evaluation
+        block evaluation
+          :md
+            You will complete and show the working code to your TA. Your TA will ask you questions regarding your
+            solution. These questions are aimed to verify your learning and showcase what you've learned. Thus, these
+            labs are not just about completion, but also understanding.
+
+            Credit will be given for:
+
+            * Showing a working solution
+            * Answering questions about your solution
+            * Submission of code
+
+      +labSection("Pre-Lab Exercise")#prelab
+        block prelab
+
+      +labSection("Lab Exercise")#exercise.exercise
+        block exercise
+
+      section.submission#submission(data-title="Submission")
+        block submission
+
+      block content
+
+    nav.col-sm-3#toc-spy
+      ul.nav.nav-stacked.content-nav(data-spy="affix")
+
+block scripts
+  script(src=assets.js('labs.bundle.min.js'))

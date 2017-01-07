@@ -1,0 +1,3 @@
+[submodule "material"]
+	path = src
+	url = git@github.com:uwoece-se2205b-2017/course-material.git

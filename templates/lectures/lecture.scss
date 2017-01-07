@@ -1,0 +1,124 @@
+
+@import '../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap';
+@import '../../node_modules/reveal.js/css/reveal.scss';
+@import '../../node_modules/reveal.js/css/theme/solarized';
+@import '../../node_modules/highlight.js/styles/tomorrow';
+@import '../../node_modules/font-awesome/css/font-awesome';
+
+$western-purple: #4e2683;
+
+.home-ribbon {
+
+  $ribbon-left: -3.23em;
+  $ribbon-top: 1.23em;
+  $ribbon-width: 11.38em;
+  $ribbon-height: 2.54em;
+
+  font-size: 16px;
+  height: 7em;
+  width: 7em;
+
+  top: 0;
+  left: 0;
+  right: auto;
+  z-index: 9999;
+  position: fixed;
+  pointer-events: none;
+  text-decoration: none;
+  text-indent: -9999999px;
+
+  overflow: hidden;
+
+  &::before, &::after {
+
+    background-color: $western-purple;
+    top: $ribbon-top;
+    left: $ribbon-left;
+    right: auto;
+
+    width: $ribbon-width;
+    height: $ribbon-height;
+
+    transform: rotate(-45deg);
+    position: absolute;
+    display: block;
+  }
+
+  &::before {
+    content: "";
+    padding: .38em 0;
+
+    background-image: linear-gradient(to bottom,rgba(0,0,0,0),rgba(0,0,0,0.15));
+    box-shadow: 0 .15em .23em 0 rgba(0,0,0,0.5);
+    pointer-events: auto;
+  }
+
+  &::after {
+    line-height: 2em;
+
+    content: attr(title);
+    color: #fff;
+    text-decoration: none;
+    text-shadow: 0 -.08em rgba(0,0,0,0.5);
+    text-align: center;
+    text-indent: 0;
+    font: $font-family-base;
+    padding: .15em 0;
+    margin: .15em 0;
+    border-width: .08em 0;
+    border-style: dotted;
+    border-color: rgba(255,255,255,0.7);
+  }
+}
+
+.visible-printing {
+  display: none;
+}
+
+.reveal {
+
+  /* These make sure that the code is still visible before it gets marked. */
+  pre code {
+    span.mark.fragment {
+      opacity: 1.0;
+      visibility: visible;
+    }
+
+    mark {
+      background-color: #ffff00;
+    }
+
+    span.mark.fragment.current-fragment {
+      background-color: #ffff00;
+    }
+  }
+
+  // Quick text mixins
+  .text-left {
+    text-align: left;
+  }
+
+  .text-center {
+    text-align: center;
+  }
+
+  .text-right {
+    text-align: right;
+  }
+
+  /* Documentation block */
+
+  .docs-block ul {
+    list-style-type: none;
+    overflow: hidden;
+    margin: 0;
+  }
+
+  .docs-block ul li {
+    float: left;
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+}
+
+

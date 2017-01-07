@@ -1,0 +1,98 @@
+//- Head layout file used for Lectures
+include ../_common.mixins.pug
+
+//- Mixin for the notes for a slide slides
+mixin notes
+  if block
+    aside.notes
+      block
+
+mixin java
+  pre: code.lang-java(data-noescape)&attributes(attributes)
+    block
+
+mixin title_slide
+  section
+    h2 SE2205 - Data Structures and Algorithms
+    p= lecture.title
+
+    p Kevin Brightwell
+    p: a(href="mailto:kbright2@uwo.ca")
+        small kbright2@uwo.ca
+
+    p: small #{lecture.date.format("dddd MMMM Do, YYYY")}
+
+    if block
+      +notes
+        block
+
+-
+  var outlineTopics = [];
+
+mixin initOutline(...items)
+  - outlineTopics = items.slice()
+
+mixin outline(hlIdx)
+  h4 Lecture Outline
+
+  ul
+    each val, idx in outlineTopics
+      if idx == hlIdx
+        li.fragment.highlight-current-blue= val
+      else
+        li= val
+
+//- Used to define a block of document links
+mixin docs
+  .docs-block&attributes(attributes): small Docs:
+    ul
+      block
+
+//- Defines a document link
+mixin docLink(link, dataIndex)
+  li(data-fragment-index=dataIndex class=(_.isNumber(dataIndex) ? "fragment" : ""))&attributes(attributes)
+    a(href=link)
+      +icn('java', true)
+      code
+        block
+
+mixin li_frag(idx)
+  li.fragment(data-fragment-index=idx)
+    block
+
+mixin video(name)
+  video&attributes(attributes)
+    source(data-src=assets.video(name + '.mp4') type="video/mp4")
+    source(data-src=assets.video(name + '.ogg') type="video/ogg")
+  .text-center.visible-printing
+    p Video: #[a(href=assets.video(name + '.mp4')) MP4] | #[a(href=assets.video(name + '.ogg')) OGG]
+
+
+doctype html
+html
+  head
+
+    meta(charset="utf-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no")
+
+    block title
+      title Presentation
+
+    link(rel="stylesheet" href=assets.css('lectures/lecture.css'))
+
+    script(src=reveal('head.min.js'))
+
+  body
+
+    a.rm-present.home-ribbon(href="/" title="Home") Home
+
+    .reveal
+      .slides
+        block slides
+
+    script(src=assets.js('vendor.bundle.min.js') type="text/javascript" charset="utf-8")
+    script(src=assets.js('lectures.bundle.min.js') type="text/javascript" charset="utf-8")
+
+
+
+

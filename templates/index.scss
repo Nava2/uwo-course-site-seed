@@ -1,0 +1,57 @@
+@import './theme/index';
+
+@import '../node_modules/highlight.js/styles/tomorrow';
+@import '../node_modules/font-awesome/css/font-awesome';
+
+body {
+  padding-top: $navbar-height + $padding-base-vertical/2;
+}
+
+body {
+  //padding-bottom: $footer-height;
+}
+
+.lecture-table {
+
+  ul.keywords {
+    display: inline-block;
+
+    > li {
+      padding-right: 0;
+
+      &:after {
+        content: ', ';
+      }
+
+      &:last-child:after {
+        content: '';
+      }
+    }
+  }
+
+}
+
+.panel ul.panel-heading {
+  padding: 5px 5px 0 5px;
+}
+
+.navbar-header .navbar-brand img {
+  width: $navbar-height / 2;
+  height: $navbar-height / 2;
+}
+
+.lab-content {
+
+  .content-nav {
+    li.question {
+      padding-left: $padding-base-vertical;
+      font-size: $font-family-base - 2px;
+    }
+  }
+
+  h5.deliverable {
+    text-decoration: underline;
+  }
+}
+
+

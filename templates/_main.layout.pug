@@ -1,0 +1,40 @@
+
+include _common.mixins.pug
+
+doctype html
+html
+  head
+    meta(charset="utf-8")
+    block title
+      title SE2205 - Data Structures and Algorithms - Winter 2017
+
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+
+    link(rel="stylesheet" href=assets.css("index.css"))
+
+    block styles
+
+body
+
+  include _navbar.component.pug
+
+  .main.container
+    block content
+
+  footer.footer
+    .container
+      span.text-muted Kevin Brightwell &copy; 2016-!{moment().format("YYYY")}
+
+      .footer-right.pull-right
+        a.icon.text-muted(href=data.owlHref): +icn('graduation-cap')
+        a.icon.text-muted(href="https://github.com/Nava2"): +icn('github')
+        a.icon.text-muted(href="mailto:kbright2@uwo.ca"): +icn('envelope')
+
+  script(src=assets.js('vendor.bundle.min.js') type="text/javascript" charset="utf-8")
+  script(src=assets.js('main.bundle.min.js') type="text/javascript" charset="utf-8")
+
+  block scripts
+
+
+
+
