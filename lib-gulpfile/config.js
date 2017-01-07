@@ -7,6 +7,7 @@
 const path = require('path');
 
 const _ = require('lodash');
+const env = require('dotenv').config();
 const util = require('./util');
 
 const packageJson = require('../package.json');
@@ -24,6 +25,10 @@ const seed = _.defaultsDeep(packageJson.teachingSeedConfig, {
   },
 
   src: {
+    root: './src/'
+  },
+
+  templates: {
     root: './templates/'
   },
 
@@ -114,6 +119,10 @@ module.exports = {
 
   sys: sys,
   web: web,
+
+  deploy: {
+    url: env['DEPLOY_REPOSITORY']
+  }
 
 
 };

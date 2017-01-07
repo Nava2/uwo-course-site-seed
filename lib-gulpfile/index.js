@@ -90,7 +90,11 @@ module.exports = (gulp) => {
   gulp.task('deploy', cb => {
     ghpages.publish(config.sys.dist(), {
       branch: 'master',
-      message: `Site update: ${moment().format(moment.ISO_8601())}`
+      remote: 'deploy',
+      message: `Site update: ${moment().format(moment.ISO_8601())}`,
+      logger: function(message) {
+        console.log(message);
+      }
     }, cb);
   });
 

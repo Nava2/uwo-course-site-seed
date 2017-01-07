@@ -1,4 +1,19 @@
 {
+  "name": "uwo-course-seed",
+  "version": "0.0.1",
+  "description": "Base template for generating a simple course website",
+  "homepage": "https://github.com/Nava2/uwo-course-site-seed",
+  "contributors": [
+    {
+      "name": "Kevin Brightwell",
+      "url": "https://github.com/Nava2"
+    }
+  ],
+  "license": "MIT",
+  "repository": "github:Nava2/uwo-course-site-seed",
+  "bugs": {
+    "url": "https://github.com/Nava2/uwo-course-site-seed/issues"
+  },
   "dependencies": {
     "bootstrap": "^3.3.7",
     "font-awesome": "^4.7.0",
@@ -23,6 +38,7 @@
     "@types/reveal": "^3.3.31",
     "bootstrap-sass": "^3.3.7",
     "del": "^2.2.2",
+    "dotenv": "^4.0.0",
     "eslint-config-google": "^0.3.0",
     "expose-loader": "^0.7.1",
     "gh-pages": "^0.12.0",
