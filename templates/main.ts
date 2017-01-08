@@ -10,7 +10,8 @@ import * as moment from 'moment';
 import * as $ from 'jquery';
 
 import 'jquery';
-import 'bootstrap/dist/js/bootstrap';
+import 'bootstrap/js/dropdown';
+import 'bootstrap/js/tab';
 
 function hideDateEnabled() {
 
@@ -60,7 +61,6 @@ $().ready(() => {
   hideDateEnabled();
 
   hljs.initHighlighting();
-
 });
 
 

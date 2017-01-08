@@ -24,12 +24,29 @@ block title
 
 block content
   .row
-    .col-sm-9.lab-content(data-spy="scroll" data-target="#toc-spy" data-offset="15")
+    .col-sm-8.col-md-9#lab-content(data-spy="scroll" data-target="#scroll-nav" data-offset="0")
 
       h2.lab-title Lab !{padLeft(lab.index, 2, '0')}: !{lab.title}
 
-      .lab-date Runs: Week of !{lab.date.format("MMM DD, YYYY")}
-      .lab-date Due: Week of !{lab.date.clone().add(1, 'weeks').format("MMM DD, YYYY")}
+      dl.lab-dates
+        dt Runs
+        dd Week of !{lab.date.format("MMM DD, YYYY")}
+        dt Due
+        dd Week of !{lab.date.clone().add(1, 'weeks').format("MMM DD, YYYY")}
+
+      .row
+        if lab.authors.length > 0
+          .col-lg-6.col-sm-12 Prepared by:
+            ul.name-list
+              each author in lab.authors
+                li: +author(author)
+
+        if lab.acknowledgements.length > 0
+          .col-lg-6.col-sm-12 Acknowledgements:
+            ul.name-list
+              each author in lab.acknowledgements
+                li: +author(author)
+
 
       +labSection("Rationale and Background")#rationale
         block rationale
@@ -59,7 +76,7 @@ block content
       +labSection("Lab Exercise")#exercise.exercise
         block exercise
 
-      section.submission#submission(data-title="Submission")
+      +labSection("Submission")#submission
         block submission
 
         block submission-instructions
@@ -70,7 +87,7 @@ block content
 
       block content
 
-    nav.col-sm-3#toc-spy
+    nav.col-sm-4.col-md-3#scroll-nav
       ul.nav.nav-stacked.content-nav(data-spy="affix")
 
 block scripts

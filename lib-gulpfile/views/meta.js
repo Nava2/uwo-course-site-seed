@@ -15,7 +15,7 @@ function loadMeta(inPath) {
   if (util.isDev()) {
     meta = JSON.parse(fs.readFileSync(jsonPath));
   } else {
-    meta = require('../' + jsonPath.replace(/\\/g, '/'));
+    meta = require('../../' + jsonPath.replace(/\\/g, '/'));
   }
 
   meta.link = function makeLink(subPath) {

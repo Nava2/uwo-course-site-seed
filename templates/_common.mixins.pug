@@ -20,6 +20,16 @@ mixin javaLink(url)
     | &nbsp;
     block
 
+mixin author(author)
+  span.author-line
+    =author.name
+    if author.email
+      | &nbsp;
+      a(href="mailto:" + author.email): +icn('envelope')
+    if author.url
+      | &nbsp;
+      a(href=author.url): +icn('link')
+
 mixin video(name)
   video&attributes(attributes)
     source(src=assets.video(name + '.ogg') type="video/ogg")

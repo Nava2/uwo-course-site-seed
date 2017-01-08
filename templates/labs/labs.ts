@@ -5,6 +5,9 @@
 import { queryAll, fixCodeBlocks } from "../common";
 
 import * as $ from 'jquery';
+import "jquery";
+import "bootstrap/js/affix";
+import "bootstrap/js/scrollspy";
 
 class Section {
 
@@ -27,7 +30,6 @@ class Section {
       throw new TypeError(`Element (${element.id}) does not have data-title attribute.`);
     }
 
-
     let children = queryAll(`#${this.id}.exercise section`);
     if (children.length > 0) {
       this.subsections = children.map((e, i) => new Section(e, i));
@@ -38,11 +40,9 @@ class Section {
     let a = document.createElement('a');
     a.href = '#' + this.id;
     a.title = this.title;
+    a.innerText = this.title;
 
-    const li = document.createElement('li');
-    li.innerText = this.title;
-
-    a.appendChild(li);
+    a.classList.add('nav-link');
     return a;
   }
 
@@ -50,27 +50,43 @@ class Section {
 
 function initMenu() {
 
-  let nav = document.querySelector('nav > ul.content-nav');
-  let sections = queryAll('.lab-content > section').map(e => new Section(e));
+  const locationHash = window.location.hash;
 
-  sections.forEach(section => {
+  let nav = document.querySelector('nav > ul.content-nav');
+  let sections = queryAll('#lab-content > section').map(e => new Section(e));
+
+  sections.forEach((section, idx) => {
     let li = document.createElement('li');
+    li.classList.add('nav-item');
+
     let a = section.getAnchor();
+    if (idx === 0 && locationHash === '') {
+      a.classList.add('active');
+    }
+
+    if (a.hash === locationHash) {
+      a.classList.add('active');
+    }
 
     li.appendChild(a);
-
     nav.appendChild(li);
 
     if (section.subsections) {
-    //  li.question: a(href="#question-0") Q0 - Project Setup
       let ol = document.createElement("ol");
-      ol.classList.add("questions");
+      ol.classList.add("questions", "nav");
 
       section.subsections.forEach(sub => {
         let a = sub.getAnchor();
         a.classList.add("question");
+        if (a.hash === locationHash) {
+          a.classList.add('active');
+        }
 
-        ol.appendChild(a);
+        let li = document.createElement("li");
+        li.classList.add("nav-item");
+
+        li.appendChild(a);
+        ol.appendChild(li);
       });
 
       nav.appendChild(ol);
@@ -78,10 +94,17 @@ function initMenu() {
 
   });
 
+  if (locationHash.length > 0) {
+    window.location.hash = '';
+    window.location.hash = locationHash;
+  }
+
 }
 
 $(document).ready(() => {
   fixCodeBlocks();
 
   initMenu();
+
+  $('#lab-content').scrollspy();
 });

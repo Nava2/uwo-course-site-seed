@@ -35,14 +35,23 @@ module.exports = (gulp, $) => {
     ], cb);
   }
 
+  function favicon(cb) {
+    pump([
+      gulp.src(config.sys.templates('favicon.ico')),
+      $.rename({ dirname: '' }),
+      gulp.dest(config.sys.dist())
+    ], cb);
+  }
+
+  const assets = gulp.parallel(media, favicon);
   const tasks = {
-    assets: media
+    assets: assets
   };
   _.forEach(tasks, (v, k) => { gulp.task(k, v); });
 
   return {
     tasks: {
-      assets: media
+      assets: assets
     },
 
     watch: function () {
@@ -54,6 +63,7 @@ module.exports = (gulp, $) => {
       }
 
       gulp.watch(globs(['**/*.@(ogg|mp4)', '**/img/**/*']), media);
+      gulp.watch(config.sys.templates('favicon.ico'), favicon);
     }
   };
 };

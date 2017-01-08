@@ -11,16 +11,6 @@ mixin java
   pre: code.lang-java(data-noescape)&attributes(attributes)
     block
 
-mixin author(author)
-  .author-line
-    =author.name
-    if author.email
-      | &nbsp;
-      a(href="mailto:" + author.email): +icn('envelope')
-    if author.url
-      | &nbsp;
-      a(href=author.url): +icn('link')
-
 mixin title_slide
   section
     h2
@@ -83,9 +73,10 @@ html
     block title
       title Lecture !{lecture.index} - !{lecture.title} - !{data.course.code} !{lecture.date.format("YYYY")}
 
+    link(rel="shortcut icon" href="/favicon.ico")
     link(rel="stylesheet" href=assets.css('lectures/lecture.css'))
 
-    script(src=reveal('head.min.js'))
+    script(src=reveal('head.min.js') async)
 
   body
 

@@ -25,6 +25,7 @@
     "reveal.js": "git+https://github.com/hakimel/reveal.js.git#master"
   },
   "devDependencies": {
+    "@types/bootstrap": "^3.3.32",
     "@types/gulp": "^3.8.32",
     "@types/gulp-filter": "^3.0.29",
     "@types/gulp-rename": "^0.0.31",

@@ -2,6 +2,12 @@
 # yarn lockfile v1
 
 
+"@types/bootstrap@^3.3.32":
+  version "3.3.32"
+  resolved "https://registry.yarnpkg.com/@types/bootstrap/-/bootstrap-3.3.32.tgz#abaf4b364d086de0cb7791db0cfd55703b591fad"
+  dependencies:
+    "@types/jquery" "*"
+
 "@types/chalk@*":
   version "0.4.31"
   resolved "https://registry.yarnpkg.com/@types/chalk/-/chalk-0.4.31.tgz#a31d74241a6b1edbb973cf36d97a2896834a51f9"
@@ -41,7 +47,7 @@
   version "9.1.9"
   resolved "https://registry.yarnpkg.com/@types/highlight.js/-/highlight.js-9.1.9.tgz#ed6336955eaf233b75eb7923b9b1f373d045ef01"
 
-"@types/jquery@^2.0.37":
+"@types/jquery@*", "@types/jquery@^2.0.37":
   version "2.0.37"
   resolved "https://registry.yarnpkg.com/@types/jquery/-/jquery-2.0.37.tgz#dae31d21864fb9de34ba145f7f161c1b373778e6"
 
