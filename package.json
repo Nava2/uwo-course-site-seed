@@ -87,19 +87,26 @@
   "teachingSeedConfig": {
     "outDir": "./dist",
     "port": 8000,
-    "assets": {
-      "root": "assets/"
+    "course": {
+      "title": "Data Structures and Algorithms",
+      "code": "SE2205B"
     },
-    "src": {
-      "root": "./src/",
-      "lectures": "lectures/",
-      "labs": "labs/"
+    "paths" : {
+      "assets": {
+        "root": "assets/"
+      },
+      "src": {
+        "root": "./src/",
+        "lectures": "lectures/",
+        "labs": "labs/"
+      },
+      "templates": {
+        "root": "./templates/",
+        "lectures": "lectures/",
+        "labs": "labs/"
+      }
     },
-    "templates": {
-      "root": "./templates/",
-      "lectures": "lectures/",
-      "labs": "labs/"
-    },
+
     "decktape": {
       "srcDir": "./decktape-1.0.0",
       "phantomjs": "phantomjs",

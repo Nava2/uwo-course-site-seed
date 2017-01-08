@@ -68,7 +68,7 @@ module.exports = (gulp, $) => {
       $.exec.reporter({ stdout: true }),
       $.debug({ title: 'Finished Lecture:' }),
       gulp.src(lectures.map(p => (p + '.pdf'))),
-      gulp.dest(config.sys.dist('lectures')),
+      gulp.dest(config.sys.dist('lectures/pdf')),
       $.debug({ title: 'Copied Lecture:' }),
     ], cb);
   }

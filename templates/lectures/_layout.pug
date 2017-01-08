@@ -11,36 +11,41 @@ mixin java
   pre: code.lang-java(data-noescape)&attributes(attributes)
     block
 
+mixin author(author)
+  .author-line
+    =author.name
+    if author.email
+      | &nbsp;
+      a(href="mailto:" + author.email): +icn('envelope')
+    if author.url
+      | &nbsp;
+      a(href=author.url): +icn('link')
+
 mixin title_slide
   section
-    h2 SE2205 - Data Structures and Algorithms
-    p= lecture.title
+    h2
+      small= data.course.code + ' - ' + data.course.title
+      .clear-fix
+      = lecture.title
 
-    p Kevin Brightwell
-    p: a(href="mailto:kbright2@uwo.ca")
-        small kbright2@uwo.ca
+    each author in lecture.authors
+      +author(author)
 
     p: small #{lecture.date.format("dddd MMMM Do, YYYY")}
+
+    if lecture.acknowledgements.length > 0
+      p
+        small Acknowledgements:
+          each ack in lecture.acknowledgements
+            +author(ack)
+
 
     if block
       +notes
         block
 
--
-  var outlineTopics = [];
-
-mixin initOutline(...items)
-  - outlineTopics = items.slice()
-
-mixin outline(hlIdx)
-  h4 Lecture Outline
-
-  ul
-    each val, idx in outlineTopics
-      if idx == hlIdx
-        li.fragment.highlight-current-blue= val
-      else
-        li= val
+mixin outline
+  h1 REMOVE ME
 
 //- Used to define a block of document links
 mixin docs
@@ -76,7 +81,7 @@ html
     meta(name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no")
 
     block title
-      title Presentation
+      title Lecture !{lecture.index} - !{lecture.title} - !{data.course.code} !{lecture.date.format("YYYY")}
 
     link(rel="stylesheet" href=assets.css('lectures/lecture.css'))
 
@@ -88,6 +93,9 @@ html
 
     .reveal
       .slides
+
+        +title_slide
+
         block slides
 
     script(src=assets.js('vendor.bundle.min.js') type="text/javascript" charset="utf-8")

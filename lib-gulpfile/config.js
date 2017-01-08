@@ -120,6 +120,8 @@ module.exports = {
   sys: sys,
   web: web,
 
+  course: seed.course,
+
   deploy: {
     url: env['DEPLOY_REPOSITORY']
   }

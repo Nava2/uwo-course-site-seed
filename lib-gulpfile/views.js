@@ -23,7 +23,7 @@ const loadMeta = _.memoize(inPath => {
   if (util.isDev()) {
     meta = JSON.parse(fs.readFileSync(jsonPath));
   } else {
-     meta = require('../' + jsonPath.replace(/\\/g, '/'));
+    meta = require('../' + jsonPath.replace(/\\/g, '/'));
   }
 
   meta.link = function makeLink(subPath) {
@@ -34,7 +34,8 @@ const loadMeta = _.memoize(inPath => {
     out.index = idx;
     out.date = moment(l.date);
     out.href = meta.link(l.href);
-    return out;
+
+    return _.defaultsDeep(out,  meta.default);
   });
 
   meta.groupKeys.forEach(key => {
@@ -225,7 +226,6 @@ function createMixin(name, parameters, transformFn) {
         throw new TypeError(`Missing parameters for +${name}(...): ${paramStr}`);
       }
 
-
       replace.push({
         start: m.index,
         end: m.index + m[0].length,
@@ -331,7 +331,8 @@ module.exports = (gulp, $) => {
     const pugOptions = loadOptions({
       lecture: lectures,
       lab: labs,
-      owlHref: 'https://owl.uwo.ca/portal/site/2b63b99c-73df-48ea-8184-594fe6cce918'
+      owlHref: 'https://owl.uwo.ca/portal/site/2b63b99c-73df-48ea-8184-594fe6cce918',
+      course: config.course
     });
 
     pump([
@@ -369,6 +370,9 @@ module.exports = (gulp, $) => {
   function viewsPdf(cb) {
     pump([
       gulp.src('**/*.pdf', { cwd: config.sys.src() }),
+      $.rename(p => {
+        p.dirname = p.dirname.replace(/[\\\/]pdf/, '');
+      }),
       gulp.dest(config.sys.dist())
     ], cb);
   }
@@ -397,7 +401,7 @@ module.exports = (gulp, $) => {
 
     watch: function () {
       gulp.watch([config.sys.templates('**/*.ts'), 'webpack.config.js', 'tsconfig.json'], viewsWebpack);
-      gulp.watch(config.sys.templates('**/*.pug'), viewsPug);
+      gulp.watch([config.sys.templates('**/*.pug'), config.sys.src('**/*.pug')], viewsPug);
       gulp.watch(config.sys.src('**/*.pdf'), viewsPdf);
     }
   };

@@ -93,7 +93,7 @@ module.exports = (gulp) => {
       remote: 'deploy',
       message: `Site update: ${moment().format(moment.ISO_8601())}`,
       logger: function(message) {
-        console.log(message);
+        console.log('git: ' + message);
       }
     }, cb);
   });

@@ -12,3 +12,7 @@ pug filters/mixins available.
 
 Labs generated via the main index page. Building the labs utilize multiple blocks to quickly make 
 labs of a designated format. 
+
+## Example
+
+See the currently in use site: [SE2205B - Data Structures and Algorithms - Winter 2017](https://uwoece-se2205b-2017.github.io).
