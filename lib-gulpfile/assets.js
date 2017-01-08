@@ -46,7 +46,14 @@ module.exports = (gulp, $) => {
     },
 
     watch: function () {
-      gulp.watch([config.sys.templates('**/*.@(ogg|mp4)'), config.sys.templates('**/img/**/*')], media);
+      function globs(input) {
+        return _.flatten([
+          config.sys.templates,
+          config.sys.src
+        ].map(fn => (input.map(g => fn(g)))));
+      }
+
+      gulp.watch(globs(['**/*.@(ogg|mp4)', '**/img/**/*']), media);
     }
   };
 };

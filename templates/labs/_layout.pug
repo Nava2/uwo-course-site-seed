@@ -38,7 +38,7 @@ block content
         block provided
           :md
             Code is provided in a Github repository. The link is provided in the
-            +owlLink(href='a64921e3-f0ee-434f-af72-7dbc6ec426ef', text='Assignments') page.
+            {{owlLink "page/a64921e3-f0ee-434f-af72-7dbc6ec426ef" "Assignments"}} page.
 
       +labSection("Evaluation")#evaluation
         block evaluation
@@ -61,6 +61,12 @@ block content
 
       section.submission#submission(data-title="Submission")
         block submission
+
+        block submission-instructions
+          :md
+            When your code is hosted on your repository, you will submit your lab to the assignment on the
+            {{owlLink "page/a64921e3-f0ee-434f-af72-7dbc6ec426ef" "Assignments"}} page. In your submission, the
+            **only** content will be a link to your repository.
 
       block content
 
