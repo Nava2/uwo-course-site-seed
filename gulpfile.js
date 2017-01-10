@@ -4,5 +4,5 @@
 
 "use strict";
 
-const gulp = require('./lib-gulpfile')(require('gulp'));
+require('./lib-gulpfile');
 

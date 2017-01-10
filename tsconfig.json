@@ -11,8 +11,10 @@
     "removeComments": false,
     "noImplicitAny": false,
     "allowSyntheticDefaultImports": true,
+    "allowJs": true,
     "typeRoots": [
-      "./node_modules/@types"
+      "./node_modules/@types",
+      "./lib/types"
     ]
   },
   "exclude": [

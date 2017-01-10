@@ -101,7 +101,7 @@ function loadDefaultHelpers(hb, locals) {
   });
 }
 
-module.exports = (options) => {
+module.exports = function mdFilter(options) {
 
   options = _.defaults(options, {
     helpers: {},

@@ -1,25 +1,30 @@
 
 "use strict";
 
-const _ = require('lodash');
+const gulp = require("gulp");
+const $ = require('gulp-load-plugins')();
 
+const pump = require('pump');
 
-const TASK = 'vendor';
+const config = require('../config');
 
-module.exports = (gulp, $) => {
+const reveal = require('./reveal');
 
+function fontAwesome(cb) {
+  pump([
+    gulp.src(config.sys.lib['font-awesome']('fonts/**/*')),
+    $.rename({ dirname: '' }),
+    gulp.dest(config.sys.assets.fonts('font-awesome/'))
+  ], cb);
+}
 
-  const fa = require('./font-awesome')(gulp, $);
-  const reveal = require('./reveal')(gulp, $);
+const task = gulp.parallel(fontAwesome, reveal);
+gulp.task('vendor', task);
 
-  const task = gulp.parallel(fa, reveal);
-  gulp.task(TASK, task);
+module.exports = {
+  task: task,
 
-  return {
-    task: task,
-
-    watch: function () {
-      gulp.watch('package.json', task);
-    }
-  };
+  watch: function () {
+    gulp.watch('package.json', task);
+  }
 };

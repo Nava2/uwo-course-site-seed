@@ -1,0 +1,13 @@
+@import './theme/index';
+
+@import '../node_modules/highlight.js/styles/tomorrow';
+@import '../node_modules/font-awesome/css/font-awesome';
+
+body {
+  padding-top: $navbar-height + $padding-base-vertical/2;
+}
+
+.navbar-header .navbar-brand img {
+  width: $navbar-height / 2;
+  height: $navbar-height / 2;
+}

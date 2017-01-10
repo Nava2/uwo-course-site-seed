@@ -28,7 +28,7 @@ mixin author(author)
       a(href="mailto:" + author.email): +icn('envelope')
     if author.url
       | &nbsp;
-      a(href=author.url): +icn('link')
+      a(href=url.format(author.url)): +icn('link')
 
 mixin video(name)
   video&attributes(attributes)

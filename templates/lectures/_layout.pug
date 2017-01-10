@@ -21,7 +21,7 @@ mixin title_slide
     each author in lecture.authors
       +author(author)
 
-    p: small #{lecture.date.format("dddd MMMM Do, YYYY")}
+    p: small #{lecture.start.format("dddd MMMM Do, YYYY")}
 
     if lecture.acknowledgements.length > 0
       p
@@ -71,7 +71,7 @@ html
     meta(name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no")
 
     block title
-      title Lecture !{lecture.index} - !{lecture.title} - !{data.course.code} !{lecture.date.format("YYYY")}
+      title Lecture !{lecture.index} - !{lecture.title} - !{data.course.code} !{lecture.start.format("YYYY")}
 
     link(rel="shortcut icon" href="/favicon.ico")
     link(rel="stylesheet" href=assets.css('lectures/lecture.css'))

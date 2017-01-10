@@ -1,48 +1,54 @@
 
 "use strict";
 
+const gulp = require("gulp");
+const $ = require('./plugins.js');
+
 const _ = require('lodash');
+const merge2 = require('merge2');
 const pump = require('pump');
 
 const config = require('./config');
 
-module.exports = (gulp, $) => {
+const vendor = require('./vendor');
 
-  const vendor = require('./vendor')(gulp);
+function css(cb) {
+  const sassFilter = $.filter('**/*.scss', { restore: true });
 
-  function css(cb) {
-    const sassFilter = $.filter('**/*.scss', { restore: true });
-
-    pump([
+  pump([
+    merge2(
       gulp.src('**/*.@(css|scss)', { cwd: config.sys.templates() }),
-      $.sourcemaps.init(),
+      gulp.src('**/*.@(css|scss)', { cwd: config.sys.src() })
+    ),
+    $.sourcemaps.init(),
 
-      sassFilter,
-      $.sass(),
-      $.replace(/url\((['"])\.\.\/fonts\/fontawesome/g,
-        `url($1${config.web.assets.fonts('font-awesome/fontawesome')}`),
-      $.replace(/url\((?:\.\.\/)+lib\/font\/(league-gothic|source-sans-pro)/g,
-        `url(${config.web.assets.fonts('/$1')}`),
-      sassFilter.restore,
+    sassFilter,
+    $.sass(),
+    $.replace(/url\((['"])\.\.\/fonts\/fontawesome/g,
+      `url($1${config.web.assets.fonts('font-awesome/fontawesome')}`),
+    $.replace(/url\((?:\.\.\/)+lib\/font\/(league-gothic|source-sans-pro)/g,
+      `url(${config.web.assets.fonts('/$1')}`),
+    sassFilter.restore,
 
-      $.uglify_css(),
+    $.uglify_css(),
 
-      $.sourcemaps.write(),
-      gulp.dest(config.sys.assets.css())
-    ], cb);
+    $.sourcemaps.write(),
+    gulp.dest(config.sys.assets.css())
+  ], cb);
+}
+
+module.exports = {
+  tasks: {
+    css: css
+  },
+
+  watch: function () {
+    gulp.watch([
+      'package.json',
+      config.sys.templates('**/*.@(css|scss)'),
+      config.sys.src('**/*.@(css|scss)')
+    ], css);
   }
-
-  const tasks = {
-    css: gulp.series(css)
-  };
-
-  _.forEach(tasks, (v, k) => { gulp.task(k, v); });
-
-  return {
-    tasks: tasks,
-
-    watch: function () {
-      gulp.watch(['package.json', config.sys.templates('**/*.@(css|scss)')], css);
-    }
-  };
 };
+
+_.forEach(module.exports.tasks, (v, k) => { gulp.task(k, v); });

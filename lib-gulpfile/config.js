@@ -8,7 +8,7 @@ const path = require('path');
 
 const _ = require('lodash');
 const env = require('dotenv').config();
-const util = require('./util');
+const util = require('../lib/util');
 
 const packageJson = require('../package.json');
 

@@ -25,8 +25,8 @@ nav.navbar.navbar-default.navbar-fixed-top
             aria-expanded="false"
           ) Lectures
           ul.dropdown-menu
-            each lecture, idx in data.lecture.items
-              li.date-enabled(data-available-date=lecture.date)
+            each lecture, idx in data.course.components.lectures.items
+              li.date-enabled(data-available-date=lecture.start)
                 a.presentation(href=lecture.href) !{padLeft(idx, 2, '0')} - !{lecture.title}
 
         li.dropdown
@@ -37,6 +37,8 @@ nav.navbar.navbar-default.navbar-fixed-top
               aria-expanded="false"
             ) Labs
           ul.dropdown-menu
-            each lab, idx in data.lab.items
-              li.date-enabled(data-available-date=lab.date)
+            each lab, idx in data.course.components.labs.items
+              li.date-enabled(data-available-date=lab.start)
                 a(href=lab.href) !{padLeft(idx, 2, '0')} - !{lab.title}
+
+        li: a.nav-link(href="/#calendar") Calendar

@@ -1,8 +1,9 @@
 "use strict";
 
 const $ = require('gulp-load-plugins')();
-const util = require('./util');
+
 const config = require('./config');
+const util = require('./util');
 
 $.filterMin = function filterMin() {
   return $.filter([`**/*`, `!**/*.min.*`], { restore: true });

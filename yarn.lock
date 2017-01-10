@@ -8,41 +8,6 @@
   dependencies:
     "@types/jquery" "*"
 
-"@types/chalk@*":
-  version "0.4.31"
-  resolved "https://registry.yarnpkg.com/@types/chalk/-/chalk-0.4.31.tgz#a31d74241a6b1edbb973cf36d97a2896834a51f9"
-
-"@types/gulp-filter@^3.0.29":
-  version "3.0.29"
-  resolved "https://registry.yarnpkg.com/@types/gulp-filter/-/gulp-filter-3.0.29.tgz#b81f6b98fc8268271080ef13c9e0f51ae8dff884"
-  dependencies:
-    "@types/minimatch" "*"
-    "@types/node" "*"
-    "@types/vinyl" "*"
-
-"@types/gulp-rename@^0.0.31":
-  version "0.0.31"
-  resolved "https://registry.yarnpkg.com/@types/gulp-rename/-/gulp-rename-0.0.31.tgz#9be6e951e477c4123a878376640b5026ef3477d6"
-  dependencies:
-    "@types/node" "*"
-
-"@types/gulp-util@^3.0.30":
-  version "3.0.30"
-  resolved "https://registry.yarnpkg.com/@types/gulp-util/-/gulp-util-3.0.30.tgz#4c5f6583a21608139667e3ac56b05bc67ecfa8fb"
-  dependencies:
-    "@types/chalk" "*"
-    "@types/node" "*"
-    "@types/through2" "*"
-    "@types/vinyl" "*"
-
-"@types/gulp@^3.8.32":
-  version "3.8.32"
-  resolved "https://registry.yarnpkg.com/@types/gulp/-/gulp-3.8.32.tgz#83c59c681cc233d1ec7f82d269555566fa133156"
-  dependencies:
-    "@types/node" "*"
-    "@types/orchestrator" "*"
-    "@types/vinyl" "*"
-
 "@types/highlight.js@^9.1.9":
   version "9.1.9"
   resolved "https://registry.yarnpkg.com/@types/highlight.js/-/highlight.js-9.1.9.tgz#ed6336955eaf233b75eb7923b9b1f373d045ef01"
@@ -63,39 +28,13 @@
   version "4.14.45"
   resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.14.45.tgz#db20238f23fa195d6fb8f9ff7988e8651fc8c302"
 
-"@types/minimatch@*":
-  version "2.0.29"
-  resolved "https://registry.yarnpkg.com/@types/minimatch/-/minimatch-2.0.29.tgz#5002e14f75e2d71e564281df0431c8c1b4a2a36a"
-
-"@types/node@*", "@types/node@^6.0.55":
+"@types/node@^6.0.55":
   version "6.0.55"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-6.0.55.tgz#e5cb679a43561f42afd1bd6d58d3992ec8f31720"
-
-"@types/orchestrator@*":
-  version "0.0.30"
-  resolved "https://registry.yarnpkg.com/@types/orchestrator/-/orchestrator-0.0.30.tgz#dcdda8d647b568b7b1e34178cb1f0b44ac9a98e5"
-  dependencies:
-    "@types/q" "*"
-
-"@types/q@*":
-  version "0.0.32"
-  resolved "https://registry.yarnpkg.com/@types/q/-/q-0.0.32.tgz#bd284e57c84f1325da702babfc82a5328190c0c5"
 
 "@types/reveal@^3.3.31":
   version "3.3.31"
   resolved "https://registry.yarnpkg.com/@types/reveal/-/reveal-3.3.31.tgz#e648321c85e1f5826665aa7acd3b506132de50db"
-
-"@types/through2@*":
-  version "2.0.32"
-  resolved "https://registry.yarnpkg.com/@types/through2/-/through2-2.0.32.tgz#470024450f1ab7640f19f9ebf42d3da574c26129"
-  dependencies:
-    "@types/node" "*"
-
-"@types/vinyl@*":
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/@types/vinyl/-/vinyl-2.0.0.tgz#fd213bf7f4136dde21fe1895500b12c186f8c268"
-  dependencies:
-    "@types/node" "*"
 
 abbrev@1:
   version "1.0.9"
@@ -448,6 +387,10 @@ boom@2.x.x:
   resolved "https://registry.yarnpkg.com/boom/-/boom-2.10.1.tgz#39c8918ceff5799f83f9492a848f625add0c766f"
   dependencies:
     hoek "2.x.x"
+
+bootstrap-calendar@^0.2.4:
+  version "0.2.4"
+  resolved "https://registry.yarnpkg.com/bootstrap-calendar/-/bootstrap-calendar-0.2.4.tgz#4af891a0f20fdf03a86f2ebfbf867f3dc92cee6e"
 
 bootstrap-sass@^3.3.7:
   version "3.3.7"
@@ -2449,6 +2392,10 @@ js-yaml@3.4.5:
 jsbn@~0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/jsbn/-/jsbn-0.1.0.tgz#650987da0dd74f4ebf5a11377a2aa2d273e97dfd"
+
+json-loader@^0.5.4:
+  version "0.5.4"
+  resolved "https://registry.yarnpkg.com/json-loader/-/json-loader-0.5.4.tgz#8baa1365a632f58a3c46d20175fc6002c96e37de"
 
 json-schema@0.2.3:
   version "0.2.3"
@@ -4882,6 +4829,10 @@ validate-npm-package-license@^3.0.1:
   dependencies:
     spdx-correct "~1.0.0"
     spdx-expression-parse "~1.0.0"
+
+validator@^6.2.1:
+  version "6.2.1"
+  resolved "https://registry.yarnpkg.com/validator/-/validator-6.2.1.tgz#bc575b78d15beb2e338a665ba9530c7f409ef667"
 
 vary@~1.0.1:
   version "1.0.1"

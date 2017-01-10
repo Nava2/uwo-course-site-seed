@@ -15,12 +15,21 @@ mixin question(title)
       =title
     block
 
+mixin deliverable(title)
+  h5.deliverable
+    if title
+      =title
+    else
+      | Deliverable
+
+    block
+
 
 block styles
   link(rel="stylesheet" href=assets.css('labs/labs.css'))
 
 block title
-  title Lab !{padLeft(lab.index, 2, '0')}: !{lab.title} - SE2205 Winter 2017
+  title Lab !{padLeft(lab.index, 2, '0')}: !{lab.title} - !{data.course.code} !{lab.start.year()}
 
 block content
   .row
@@ -30,9 +39,9 @@ block content
 
       dl.lab-dates
         dt Runs
-        dd Week of !{lab.date.format("MMM DD, YYYY")}
+        dd Week of !{lab.start.format("MMM DD, YYYY")}
         dt Due
-        dd Week of !{lab.date.clone().add(1, 'weeks').format("MMM DD, YYYY")}
+        dd Week of !{lab.start.clone().add(1, 'weeks').format("MMM DD, YYYY")}
 
       .row
         if lab.authors.length > 0
