@@ -16,7 +16,7 @@ import 'bootstrap/js/tab';
 function hideDateEnabled() {
 
   const DATE_AVAILABLE_ATTR = 'data-available-date';
-  const AVAILABLE = moment().add(7, 'days');
+  const AVAILABLE = moment().add(3, 'days');
   queryAll('.date-enabled').forEach(elem => {
     const checkData = moment(elem.getAttribute(DATE_AVAILABLE_ATTR));
 

@@ -66,6 +66,14 @@ module.exports = {
       { test: require.resolve("reveal.js"), loader: "expose-loader?Reveal" },
       { test: require.resolve('bootstrap'), loader: "imports?jQuery=jquery" },
       { test: /\.ts$/, loader: 'ts-loader' },
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader: "babel-loader",
+        query: {
+          "presets": ["es2016", "es2015"]
+        }
+      },
       { test: /\.json$/, loader: 'json-loader' }
     ]
   }
