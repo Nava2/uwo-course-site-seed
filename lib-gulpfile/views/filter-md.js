@@ -6,6 +6,7 @@
 
 const _ = require('lodash');
 const container = require('markdown-it-container');
+const hljs = require('highlight.js');
 const markdown = require('markdown-it');
 
 const PUG_CLASS_ID_RE = /(\.[\w_-]+|#[\w_-]+)\s*/g;
@@ -116,14 +117,33 @@ module.exports = function mdFilter(options) {
     hb.registerHelper(key, fn);
   });
 
+
+
   function filter(text, options) {
+    function highlight(str, lang) {
+      let content = '';
+      if (lang && hljs.getLanguage(lang)) {
+        try {
+          content = hljs.highlight(lang, str).value;
+        } catch (__) {
+          content = md.utils.escapeHtml(str);
+        }
+      }
+
+      return `<pre class="hljs"><code>${content}</code></pre>`;
+    }
+
     const hbTemplate = hb.compile(text);
 
     options.langPrefix = 'lang-';
     options.html = true;
     options.xhtmlOut = true;
 
-    return loadMd(options).render(hbTemplate(text));
+    options.highlight = options.highlight || highlight;
+
+    var md = loadMd(options);
+
+    return md.render(hbTemplate(text));
   }
 
   return filter;

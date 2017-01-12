@@ -42,6 +42,13 @@ declare namespace config {
     duration?: string | moment.Duration;
 
     /**
+     * Default URL or pattern to use. If specfying a string, a lodash template may be used.
+     *
+     * For example: "<%= index %>-<%= title.toLowerCase().replace(/\s+/, ' ') %>"
+     */
+    href?: url.Url | string;
+
+    /**
      * Keywords associated
      */
     keywords?: string[];
@@ -93,9 +100,11 @@ declare namespace config {
     end?: string | moment.Moment;
 
     /**
-     * URL part used to build up the location of an item.
+     * Default URL or pattern to use. If specfying a string, a lodash template may be used.
+     *
+     * For example: "<%= index %>-<%= title.toLowerCase().replace(/\s+/, ' ') %>"
      */
-    href: string;
+    href?: url.Url | string;
   }
 
   export interface PathDefinition {
