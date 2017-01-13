@@ -16,7 +16,7 @@ function media(cb) {
   const vidFilter = $.filter('**/video/**/*', { restore : true });
 
   pump([
-    util.srcDirs(['**/img/*', '**/video/*.@(ogg|mp4)'],
+    util.srcDirs(['**/img/*.!(xcf)', '**/video/*.@(ogg|mp4)'],
       config.sys.src(),
       config.sys.templates()),
 

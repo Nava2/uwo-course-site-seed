@@ -118,16 +118,17 @@ module.exports = function mdFilter(options) {
   });
 
 
-
   function filter(text, options) {
     function highlight(str, lang) {
       let content = '';
       if (lang && hljs.getLanguage(lang)) {
         try {
           content = hljs.highlight(lang, str).value;
-        } catch (__) {
-          content = md.utils.escapeHtml(str);
-        }
+        } catch (__) { }
+      }
+
+      if (content === '') {
+        content = md.utils.escapeHtml(str);
       }
 
       return `<pre class="hljs"><code>${content}</code></pre>`;
