@@ -2,7 +2,7 @@
 import {fixCodeBlocks, queryAll} from "../common";
 
 import Reveal = require('reveal.js');
-import * as $ from 'jquery';
+import * as $ from 'jquery-slim';
 
 function isPresenting() {
   const url = window.location.href;

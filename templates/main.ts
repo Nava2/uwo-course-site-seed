@@ -7,9 +7,9 @@ import * as keyboardJS from "keyboardJS";
 import { queryAll } from "./common";
 
 import * as moment from 'moment';
-import * as $ from 'jquery';
+import * as $ from 'jquery-slim';
 
-import 'jquery';
+import 'jquery-slim';
 import 'bootstrap/js/dropdown';
 import 'bootstrap/js/tab';
 
