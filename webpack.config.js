@@ -16,9 +16,9 @@ function isExternal(module) {
 
 let plugins = [
   new webpack.ProvidePlugin({
-    jQuery: 'jquery-slim',
-    $: 'jquery-slim',
-    jquery: 'jquery-slim'
+    jQuery: 'jquery',
+    $: 'jquery',
+    jquery: 'jquery'
   }),
 
   // Chunk out the common behaviour
@@ -64,7 +64,7 @@ module.exports = {
   module: {
     loaders: [
       { test: require.resolve("reveal.js"), loader: "expose-loader?Reveal" },
-      { test: require.resolve('bootstrap'), loader: "imports?jQuery=jquery-slim" },
+      { test: require.resolve('bootstrap'), loader: "imports?jQuery=jquery" },
       { test: /\.ts$/, loader: 'ts-loader' },
       {
         test: /\.js$/,

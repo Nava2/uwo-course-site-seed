@@ -21,7 +21,7 @@
     "font-awesome": "^4.7.0",
     "handlebars": "^4.0.6",
     "highlight.js": "^9.9.0",
-    "jquery-slim": "^3.0.0",
+    "jquery": "^3.1.1",
     "jstransformer-markdown-it": "^2.0.0",
     "keyboardjs": "^2.3.3",
     "lodash": "^4.17.2",

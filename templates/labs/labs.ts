@@ -4,9 +4,9 @@
 
 import { queryAll, fixCodeBlocks } from "../common";
 
-import * as $ from 'jquery-slim';
+import * as $ from 'jquery';
 
-import "jquery-slim";
+import "jquery";
 import "bootstrap/js/affix";
 import "bootstrap/js/scrollspy";
 
