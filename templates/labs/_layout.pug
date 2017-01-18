@@ -83,6 +83,11 @@ block content
           p There is no pre-lab exercise for this lab.
 
       +labSection("Lab Exercise")#exercise.exercise
+        .alert.alert-danger(role="alert")
+          | You are #[strong not] to change any provided method headers, unless #[em explicitly] told to do so. Any
+          | additional headers or classes written must be as private as possible. The public API of your project
+          | will not change.
+
         block exercise
 
       +labSection("Submission")#submission
