@@ -79,7 +79,7 @@ function viewsPug(cb) {
 
     labsFilter,
     $.data(f => {
-      return  { lab: courseConfig.components.labs.by['file'][path.basename(f.path, '.pug')] };
+      return { lab: courseConfig.components.labs.by['file'][path.basename(f.path, '.pug')] };
     }),
     $.pug(pugOptions),
     labsFilter.restore,

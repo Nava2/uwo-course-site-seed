@@ -37,6 +37,11 @@ declare namespace config {
   export interface DefaultComponentItem {
 
     /**
+     * Title property, usually a template string.
+     */
+    title?: string;
+
+    /**
      * The duration of events in the component.
      */
     duration?: string | moment.Duration;
