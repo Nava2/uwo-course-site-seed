@@ -12,7 +12,7 @@ const reveal = require('./reveal');
 
 function fontAwesome(cb) {
   pump([
-    gulp.src(config.sys.lib['font-awesome']('fonts/**/*')),
+    gulp.src(config.sys.npm['font-awesome']('fonts/**/*')),
     $.rename({ dirname: '' }),
     gulp.dest(config.sys.assets.fonts('font-awesome/'))
   ], cb);

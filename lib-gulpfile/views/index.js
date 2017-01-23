@@ -108,7 +108,7 @@ function viewsBootstrapCalendar(cb) {
   const cssFilter = $.filter(['**/*.css'], { restore: true });
 
   pump([
-    gulp.src('bootstrap-calendar/**/*.@(html|css|png)', { cwd: config.sys.lib() }),
+    gulp.src('bootstrap-calendar/**/*.@(html|css|png)', { cwd: config.sys.npm() }),
     $.sourcemaps.init(),
 
     cssFilter,
@@ -145,6 +145,7 @@ module.exports = {
       config.sys.templates('**/*.ts'),
       config.sys.src('**/*.ts'),
       config.sys.src('**/course.config.js'),
+      config.sys.lib('**/*.js'),
       'webpack.config.js',
       'tsconfig.json'
     ], viewsWebpack);

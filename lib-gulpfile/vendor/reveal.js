@@ -11,7 +11,7 @@ const pump = require('pump');
 const config = require('../config');
 const $ = require('../plugins');
 
-const libLoc = config.sys.lib['reveal.js'];
+const libLoc = config.sys.npm['reveal.js'];
 function revealHeadjs(cb) {
   pump([
     gulp.src(libLoc('lib/js/head.min.js')),

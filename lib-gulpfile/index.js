@@ -31,7 +31,7 @@ function clean(cb) {
 
 function nuke(cb) {
   pump([
-    gulp.src(config.sys.lib()),
+    gulp.src(config.sys.npm()),
     $.clean({ read: false, force: true })
   ], cb);
 }

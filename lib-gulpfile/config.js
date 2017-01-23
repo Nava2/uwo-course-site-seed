@@ -82,14 +82,18 @@ let sys = {
     return joinSysPath(seed.paths.templates.root, '/', rest);
   },
 
-  lib: function (...rest) {
+  npm: function (...rest) {
     return joinSysPath('node_modules/', rest);
+  },
+
+  lib: function (...rest) {
+    return joinSysPath('lib/', rest);
   }
 };
 sys.templates  = loadNonRoot(sys.templates, seed.paths.templates);
 sys.src        = loadNonRoot(sys.src, seed.paths.src);
 sys.assets     = loadNonRoot(sys.assets, seed.paths.assets);
-sys.lib        = loadNonRoot(sys.lib, DEPS);
+sys.npm        = loadNonRoot(sys.npm, DEPS);
 sys.assets.lib = loadNonRoot(sys.assets.lib, DEPS);
 sys.assets.lib['reveal.js'] = loadNonRoot(sys.assets.lib['reveal.js'], seed.reveal.path);
 sys.reveal     = sys.assets.lib['reveal.js'];
