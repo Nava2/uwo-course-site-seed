@@ -2,7 +2,7 @@ extends ../_main.layout.pug
 
 mixin labSection(title)
   section(data-title=title)&attributes(attributes)
-    h3
+    h2
       a(href="#" + attributes.id)
       =title
 
@@ -10,13 +10,13 @@ mixin labSection(title)
 
 mixin question(title)
   section.question(data-title=title)&attributes(attributes)
-    h4
+    h3.question-title
       a(title=title)
       =title
     block
 
 mixin deliverable(title)
-  h5.deliverable
+  h4.deliverable
     if title
       =title
     else
@@ -29,13 +29,13 @@ block styles
   link(rel="stylesheet" href=assets.css('labs/labs.css'))
 
 block title
-  title Lab !{padLeft(lab.index, 2, '0')}: !{lab.title} - !{data.course.code} !{lab.start.year()}
+  title Lab !{lab.indexStr}: !{lab.title} - !{data.course.code} !{lab.start.year()}
 
 block content
   .row
     .col-sm-8.col-md-9#lab-content(data-spy="scroll" data-target="#scroll-nav" data-offset="0")
 
-      h2.lab-title Lab !{padLeft(lab.index, 2, '0')}: !{lab.title}
+      h1.lab-title Lab !{lab.indexStr}: !{lab.title}
 
       dl.lab-dates
         dt Runs

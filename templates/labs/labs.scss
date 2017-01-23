@@ -28,7 +28,7 @@
 section.exercise {
   counter-reset: section-question-counter;
 
-  section.question h4::before {
+  section.question .question-title::before {
     @include question-counter(section-question-counter);
   }
 }
@@ -72,7 +72,7 @@ ul.name-list {
     }
   }
 
-  h5.deliverable {
+  .deliverable {
     text-decoration: underline;
   }
 }
