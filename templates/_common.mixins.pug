@@ -2,7 +2,7 @@ mixin icn(name, hidden)
   i.fa(class="fa-" + name aria-hidden=!!hidden)&attributes(attributes)
 
 mixin owlLink(href)
-  a(href=join(data.owlHref, 'page', href))
+  a(href=join(data.owlHref, 'page', href) target="_blank")
     +icn('graduation-cap', true)
     = ' '
     block
@@ -15,7 +15,7 @@ mixin ghLink(href)
 
 mixin javaLink(url)
   //- Shows a link with a "coffee cup" implying Java -- hehe.
-  a(href=url)
+  a(href=url target="_blank")
     +icn("coffee", true)
     | &nbsp;
     block
@@ -28,7 +28,7 @@ mixin author(author)
       a(href="mailto:" + author.email): +icn('envelope')
     if author.url
       | &nbsp;
-      a(href=url.format(author.url)): +icn('link')
+      a(href=url.format(author.url) target="_blank"): +icn('link')
 
 mixin video(name)
   video&attributes(attributes)

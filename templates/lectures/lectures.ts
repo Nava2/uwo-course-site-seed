@@ -75,9 +75,14 @@ $(() => {
     slideNumber: 'c/t',
     transitionSpeed: 'fast',
 
+    math: {
+      mathjax: 'https://cdn.mathjax.org/mathjax/latest/MathJax.js',
+      config: 'TeX-AMS_HTML-full'  // See http://docs.mathjax.org/en/latest/config-files.html
+    },
+
     dependencies: [
-      { src: "/assets/lib/reveal.js/plugin/math/math.js" },
-      { src: "/assets/lib/reveal.js/plugin/notes/notes.js" }
+      { src: "/assets/lib/reveal.js/plugin/math/math.js", async: true },
+      { src: "/assets/lib/reveal.js/plugin/notes/notes.js", async: true }
     ]
   });
 
