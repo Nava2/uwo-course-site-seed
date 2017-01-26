@@ -81,8 +81,8 @@ $(() => {
     },
 
     dependencies: [
-      { src: "/assets/npm/reveal.js/plugin/math/math.js", async: true },
-      { src: "/assets/npm/reveal.js/plugin/notes/notes.js", async: true }
+      { src: "/assets/lib/reveal.js/plugin/math/math.js", async: true },
+      { src: "/assets/lib/reveal.js/plugin/notes/notes.js", async: true }
     ]
   });
 

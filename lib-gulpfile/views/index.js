@@ -23,7 +23,6 @@ const util = {
 const meta = require('../../lib/course-config');
 
 const PUG_OPTIONS = {
-  pretty: util.gulp.isDev(),
   locals: {
     moment: moment,
     _: _,
