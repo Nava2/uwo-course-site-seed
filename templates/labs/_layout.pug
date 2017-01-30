@@ -16,11 +16,12 @@ mixin question(title)
     block
 
 mixin deliverable(title)
-  h4.deliverable
-    if title
-      =title
-    else
-      | Deliverable
+  .deliverable
+    h4.deliverable-title
+      if title
+        =title
+      else
+        | Deliverable
 
     block
 
