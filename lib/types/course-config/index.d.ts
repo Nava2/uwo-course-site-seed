@@ -216,6 +216,8 @@ declare namespace course {
 
   export class Component {
 
+    readonly course: Course;
+
     /**
      * URL base
      */
@@ -249,6 +251,8 @@ declare namespace course {
 
   export class ComponentItem {
 
+    readonly component: Component;
+
     readonly index: number;
 
     readonly title: string;
@@ -271,6 +275,10 @@ declare namespace course {
      * URL part used to build up the location of an item.
      */
     readonly href: string;
+
+    readonly ext?: string;
+
+    readonly external: boolean;
 
     /**
      * Keywords associated
@@ -321,6 +329,8 @@ declare namespace course {
      * Course instructors
      */
     instructors: Author[];
+
+    learningPlatformHrefBase: string;
 
     /**
      * Map of folder-name to `Component`
