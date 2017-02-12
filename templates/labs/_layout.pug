@@ -112,3 +112,17 @@ block content
 
 block scripts
   script(src=assets.js('labs.bundle.min.js'))
+
+  script(type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML")
+
+  script(type="text/javascript").
+    MathJax.Hub.Config({
+      messageStyle: 'none',
+      tex2jax: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      },
+      skipStartupTypeset: true
+    });
+
+    MathJax.Hub.Queue( [ 'Typeset', MathJax.Hub ] );
