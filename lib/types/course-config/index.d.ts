@@ -54,6 +54,11 @@ declare namespace config {
     href?: url.Url | string;
 
     /**
+     * Whether there is a resource provided to students or this is a place-holder.
+     */
+    resourceProvided?: boolean;
+
+    /**
      * Keywords associated
      */
     keywords?: string[];
@@ -103,6 +108,11 @@ declare namespace config {
      * End time, only specify `duration` or `end`
      */
     end?: string | moment.Moment;
+
+    /**
+     * Whether there is a resource provided to students or this is a place-holder.
+     */
+    resourceProvided?: boolean;
 
     /**
      * Default URL or pattern to use. If specfying a string, a lodash template may be used.
@@ -202,6 +212,11 @@ declare namespace course {
     readonly keywords: string[];
 
     /**
+     * Whether there is a resource provided to students or this is a place-holder.
+     */
+    resourceProvided: boolean;
+
+    /**
      * Author's who wrote an item
      */
     readonly authors: Author[];
@@ -279,6 +294,11 @@ declare namespace course {
     readonly ext?: string;
 
     readonly external: boolean;
+
+    /**
+     * Whether there is a resource provided to students or this is a place-holder.
+     */
+    readonly resourceProvided: boolean;
 
     /**
      * Keywords associated

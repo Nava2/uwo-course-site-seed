@@ -54,8 +54,22 @@ ul.name-list {
   list-style: none;
   display: inline-flex;
 
-  li + li::before {
-    content: ", ";
+  li:first-child {
+    // Make the first child have some padding, otherwise we set it to 0
+    padding-left: $padding-base-horizontal;
+  }
+
+  li:last-child {
+    padding-right: $padding-base-horizontal;
+  }
+
+  li {
+    padding-left: 0;
+    padding-right: 0;
+
+    + li::before {
+      content: ", ";
+    }
   }
 }
 
